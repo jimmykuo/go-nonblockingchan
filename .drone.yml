@@ -21,14 +21,8 @@ pipeline:
 
   slack:
     image: plugins/slack
-    # webhook: ${WEBHOOK_URL}
-    # channel: ${CHANNEL}
-    secrets:
-      - source: webhook_url
-        target: slack_webhook
-      - source: channel
-        target: plugin_channel
-      - source: username
-        target: plugin_username
+    webhook: ${SLACK_WEBHOOK}
+    channel: system-status
+    secrets: [ slack_webhook ]
     when:
       status: [ failure, success ]
