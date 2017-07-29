@@ -1,0 +1,20 @@
+workspace:
+  base: /go
+  path: src/github.com/jimmykuo/go-nonblockingchan
+
+clone:
+  git:
+    image: plugins/git
+    depth: 50
+    tags: true
+
+pipeline:
+  backend:
+    image: golang
+    pull: true
+    #secrets:
+    #  - source: appleboy
+    #    target: appleboy_target
+    commands:
+      - go get github.com/hectane/go-attest
+      - go test -v
