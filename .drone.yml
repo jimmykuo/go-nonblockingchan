@@ -25,8 +25,8 @@ pipeline:
     # channel: ${CHANNEL}
     secrets:
       - source: webhook_url
-        target: webhook
+        target: plugin_webhook
       - source: channel
-        target: channel
+        target: plugin_channel
     when:
       status: [ failure, success ]
