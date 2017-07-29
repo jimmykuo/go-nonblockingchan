@@ -24,8 +24,8 @@ pipeline:
     # webhook: ${WEBHOOK_URL}
     # channel: ${CHANNEL}
     secrets:
-      #- source: webhook_url
-      #  target: plugin_webhook
+      - source: webhook_url
+        target: slack_webhook
       - source: channel
         target: plugin_channel
       - source: username
