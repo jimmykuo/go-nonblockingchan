@@ -18,3 +18,11 @@ pipeline:
     commands:
       - go get github.com/hectane/go-attest
       - go test -v
+
+  slack:
+    image: plugins/slack
+    webhook: $WEBHOOK_URL
+    channel: $CHANNEL
+    secrets: [ webhook_url, channel]
+    when:
+      status: [ failure, success ]
